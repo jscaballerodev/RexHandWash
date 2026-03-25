@@ -1,0 +1,11 @@
+/* Google Fonts must be the very first @import */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;500;600;700;800;900&family=Permanent+Marker&display=swap');
+
+/* Tailwind v4 — processed by @tailwindcss/vite plugin */
+@import 'tailwindcss' source(none);
+@source '../**/*.{js,ts,jsx,tsx}';
+
+@import 'tw-animate-css';
+
+/* Brand design tokens & base typography */
+@import './theme.css';
