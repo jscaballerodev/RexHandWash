@@ -8,8 +8,10 @@ const services = {
     {
       name: "Standard In & Out",
       price: "$99",
-      image: "/images/standard_package.jpeg",
+      image: "/images/standard_package2.jpeg",
       popular: false,
+      description:
+        "Complete interior & exterior restoration for a like-new finish",
       features: [
         "Gentle hand wash using pH-neutral soap and premium wash mitts",
         "Deep cleaning of wheels and door jambs",
@@ -23,6 +25,8 @@ const services = {
       price: "$199",
       image: "/images/deluxe_package.jpeg",
       popular: true,
+      description:
+        "Deep cleaning for seats, carpets, and all interior surfaces",
       features: [
         "Everything included in Standard In & Out",
         "Professional paint sealant for longer-lasting shine and protection",
@@ -33,8 +37,10 @@ const services = {
     {
       name: "Premium Package",
       price: "$260",
-      image: "/images/premium_package.jpeg",
+      image: "/images/premium_package2.jpeg",
       popular: false,
+      description:
+        "Long-lasting protection that keeps your car glossy and protected",
       features: [
         "Everything included in Deluxe Package",
         "Clay bar treatment and iron removal to eliminate embedded contaminants",
@@ -48,8 +54,10 @@ const services = {
     {
       name: "Estándar Interior y Exterior",
       price: "$99",
-      image: "/images/standard_package.jpeg",
+      image: "/images/standard_package2.jpeg",
       popular: false,
+      description:
+        "Restauración completa interior y exterior para un acabado como nuevo",
       features: [
         "Lavado a mano con jabón pH neutro y guantes premium",
         "Limpieza profunda de ruedas y marcos de puertas",
@@ -63,6 +71,8 @@ const services = {
       price: "$199",
       image: "/images/deluxe_package.jpeg",
       popular: true,
+      description:
+        "Limpieza profunda de asientos, alfombras y todas las superficies interiores",
       features: [
         "Todo lo incluido en Estándar",
         "Sellador de pintura profesional",
@@ -73,8 +83,10 @@ const services = {
     {
       name: "Paquete Premium",
       price: "$260",
-      image: "/images/premium_package.jpeg",
+      image: "/images/premium_package2.jpeg",
       popular: false,
+      description:
+        "Protección duradera que mantiene tu auto brillante y protegido",
       features: [
         "Todo lo incluido en Deluxe",
         "Tratamiento con barra de arcilla y eliminación de hierro",
@@ -92,8 +104,8 @@ export function ServicesSection() {
   const data = services[lang];
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-white">
-      <div className="max-w-[1440px] mx-auto px-6 flex flex-col gap-12">
+    <section id="services" className="bg-white py-16 md:py-24">
+      <div className="mx-auto flex max-w-[1440px] flex-col gap-10 px-5 sm:px-6 lg:px-8 md:gap-12">
         <ScrollReveal direction="up">
           <h2
             className="text-center text-rex-navy font-bangers tracking-[2px]"
@@ -105,10 +117,10 @@ export function ServicesSection() {
           </h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
           {data.map((s, i) => (
             <ScrollReveal key={i} direction="up" delay={i * 0.15}>
-              <div className="relative bg-white border-2 border-rex-blue/20 rounded-2xl overflow-hidden flex flex-col shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 h-full group">
+              <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border-2 border-rex-blue/20 bg-white shadow-lg transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-2xl">
                 {s.popular && (
                   <div className="absolute top-4 right-4 bg-rex-amber text-rex-navy px-3 py-1 rounded-full flex items-center gap-1 z-10 font-inter font-extrabold text-[12px]">
                     <Award className="w-4 h-4" />
@@ -122,16 +134,17 @@ export function ServicesSection() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-6 flex flex-col gap-4 flex-1">
-                  <h3 className="text-rex-navy font-bangers text-[26px]">{s.name}</h3>
+                <div className="flex flex-1 flex-col gap-4 p-6 md:gap-5 md:p-7">
+                  <h3 className="text-[26px] leading-tight text-rex-navy font-bangers">{s.name}</h3>
                   <p className="text-rex-red font-inter font-extrabold text-[22px]">
                     {isEn ? `Starting at ${s.price}` : `Desde ${s.price}`}
                   </p>
-                  <ul className="flex flex-col gap-2 flex-1">
+                  <p className="font-inter text-[15px] leading-relaxed text-[#2f3b5f]">{s.description}</p>
+                  <ul className="flex flex-1 flex-col gap-2.5">
                     {s.features.map((f, j) => (
                       <li key={j} className="flex items-start gap-2">
                         <CheckCircle className="w-4 h-4 text-rex-blue shrink-0 mt-0.5" />
-                        <span className="font-inter text-[14px] text-[#444]">{f}</span>
+                        <span className="font-inter text-[14px] leading-relaxed text-[#444]">{f}</span>
                       </li>
                     ))}
                   </ul>
@@ -145,7 +158,7 @@ export function ServicesSection() {
           <div className="flex justify-center">
             <a
               href="tel:8138256513"
-              className="bg-rex-red hover:bg-[#c1303b] text-white px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[0_8px_30px_rgba(230,57,70,0.4)] font-bangers text-[22px] tracking-[1px]"
+              className="bg-rex-red hover:bg-[#c1303b] text-white px-10 py-4 rounded-full transition-[transform,box-shadow,background-color] duration-300 hover:scale-105 shadow-lg hover:shadow-[0_8px_30px_rgba(230,57,70,0.4)] font-bangers text-[22px] tracking-[1px]"
             >
               {isEn ? "Call Now" : "Llama Ahora"}
             </a>

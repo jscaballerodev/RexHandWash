@@ -8,6 +8,8 @@ const packages = {
       name: "Ceramic Coating — 3 Year Protection",
       price: "$599",
       image: "/images/3yearprotection.jpeg",
+      description:
+        "Long-lasting protection that keeps your car glossy and protected",
       features: [
         "Prep wash to remove old wax and buildup",
         "Clay bar treatment to remove contaminants",
@@ -21,6 +23,8 @@ const packages = {
       name: "Ceramic Coating — 5 Year Protection",
       price: "$899",
       image: "/images/5yearprotection.jpeg",
+      description:
+        "Long-lasting protection that keeps your car glossy and protected",
       features: [
         "Prep wash to remove residues and old wax",
         "Clay bar and iron decontamination",
@@ -34,6 +38,8 @@ const packages = {
       name: "2 Step Paint Correction",
       price: "$399",
       image: "/images/2steppaintcorrection.jpeg",
+      description:
+        "Remove scratches, swirl marks, and restore your car’s original shine",
       features: [
         "Hand wash and paint preparation",
         "Clay bar decontamination",
@@ -49,6 +55,8 @@ const packages = {
       name: "Recubrimiento Cerámico — 3 Años",
       price: "$599",
       image: "/images/3yearprotection.jpeg",
+      description:
+        "Protección duradera que mantiene tu auto brillante y protegido",
       features: [
         "Lavado preparatorio",
         "Tratamiento con barra de arcilla",
@@ -62,6 +70,8 @@ const packages = {
       name: "Recubrimiento Cerámico — 5 Años",
       price: "$899",
       image: "/images/5yearprotection.jpeg",
+      description:
+        "Protección duradera que mantiene tu auto brillante y protegido",
       features: [
         "Lavado preparatorio completo",
         "Descontaminación con arcilla y hierro",
@@ -75,6 +85,8 @@ const packages = {
       name: "Corrección de Pintura 2 Pasos",
       price: "$399",
       image: "/images/2steppaintcorrection.jpeg",
+      description:
+        "Elimina rayones y marcas circulares para recuperar el brillo original",
       features: [
         "Lavado a mano y preparación",
         "Descontaminación con arcilla",
@@ -119,7 +131,7 @@ export function PaintProtectionSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {data.map((p, i) => (
             <ScrollReveal key={i} direction="up" delay={i * 0.15}>
-              <div className="bg-rex-blue rounded-2xl overflow-hidden flex flex-col shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 h-full group">
+              <div className="bg-rex-blue rounded-2xl overflow-hidden flex flex-col shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-[transform,box-shadow] duration-300 h-full group">
                 <div className="h-52 overflow-hidden">
                   <img
                     src={p.image}
@@ -127,12 +139,13 @@ export function PaintProtectionSection() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-8 flex flex-col gap-5 flex-1">
-                  <h3 className="text-white font-bangers text-[24px]">{p.name}</h3>
-                  <p className="text-rex-amber font-inter font-extrabold text-[24px]">
-                    {isEn ? `Starting at ${p.price}` : `Desde ${p.price}`}
-                  </p>
-                  <ul className="flex flex-col gap-3 flex-1">
+                 <div className="p-8 flex flex-col gap-5 flex-1">
+                   <h3 className="text-white font-bangers text-[24px]">{p.name}</h3>
+                   <p className="text-rex-amber font-inter font-extrabold text-[24px]">
+                     {isEn ? `Starting at ${p.price}` : `Desde ${p.price}`}
+                   </p>
+                   <p className="text-white/90 font-inter text-[15px] leading-relaxed">{p.description}</p>
+                   <ul className="flex flex-col gap-3 flex-1">
                     {p.features.map((f, j) => (
                       <li key={j} className="flex items-start gap-2">
                         <CheckCircle className="w-4 h-4 text-rex-amber shrink-0 mt-0.5" />
@@ -150,7 +163,7 @@ export function PaintProtectionSection() {
           <div className="flex justify-center">
             <a
               href="tel:8138256513"
-              className="bg-rex-red hover:bg-[#c1303b] text-white px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[0_8px_30px_rgba(230,57,70,0.4)] font-bangers text-[22px] tracking-[1px]"
+              className="bg-rex-red hover:bg-[#c1303b] text-white px-10 py-4 rounded-full transition-[transform,box-shadow,background-color] duration-300 hover:scale-105 shadow-lg hover:shadow-[0_8px_30px_rgba(230,57,70,0.4)] font-bangers text-[22px] tracking-[1px]"
             >
               {isEn ? "Book Now" : "Reserva Ahora"}
             </a>

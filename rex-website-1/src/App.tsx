@@ -12,8 +12,13 @@ import { ReviewsSection } from "./components/sections/ReviewsSection";
 import { FaqSection } from "./components/sections/FaqSection";
 import { ContactSection } from "./components/sections/ContactSection";
 import { GallerySection } from "./components/sections/GallerySection";
+import { HomeCampaignPage } from "./components/home/HomeCampaignPage";
 
 export default function App() {
+  if (window.location.pathname === "/home") {
+    return <HomeCampaignPage />;
+  }
+
   return (
     <ReactLenis root options={{ lerp: 0.1, duration: 1.2 }}>
       <LangProvider>
