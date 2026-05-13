@@ -15,7 +15,9 @@ import { GallerySection } from "./components/sections/GallerySection";
 import { HomeCampaignPage } from "./components/home/HomeCampaignPage";
 
 export default function App() {
-  if (window.location.pathname === "/home") {
+  const normalizedPath = window.location.pathname.replace(/\/+$/, "") || "/";
+
+  if (normalizedPath === "/home") {
     return <HomeCampaignPage />;
   }
 
